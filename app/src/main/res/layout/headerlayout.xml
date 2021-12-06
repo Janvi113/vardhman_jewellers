@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@color/gold"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:elevation="10dp">
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Welcome,\n customers"
+            android:textSize="30sp"
+            style="@style/TextAppearance.AppCompat.Title"/>
+
+        <TextView
+            android:paddingLeft="12dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gold Rate" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<item android:id="@+id/profileid"
+    android:title="Profile"
+    android:icon="@drawable/ic_baseline_person_pin_24"
+    />
+<item android:id="@+id/rateid"
+    android:title="Rate us"
+    android:icon="@drawable/ic_baseline_rate_review_24"
+    />
+<item android:id="@+id/helpid"
+    android:title="Help"
+    android:icon="@drawable/ic_baseline_help_24"
+    />
+<item android:id="@+id/switchaccountid"
+    android:title="Switch Account"
+    android:icon="@drawable/ic_baseline_switch_left_24"
+    />
+<item android:id="@+id/logoutid"
+    android:title="Logout"
+    android:icon="@drawable/ic_baseline_login_24"
+    />
+</menu>
