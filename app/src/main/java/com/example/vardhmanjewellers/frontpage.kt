@@ -28,6 +28,7 @@ class frontpage : AppCompatActivity() {
         setup()
         dummy()
         dummy1()
+        dom()
         bottomnav.setOnNavigationItemSelectedListener {
             (it.isChecked)
             when (it.itemId) {
@@ -48,6 +49,10 @@ class frontpage : AppCompatActivity() {
             }
             true
         }
+
+    }
+
+    private fun dom() {
 
     }
 
