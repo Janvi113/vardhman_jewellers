@@ -5,26 +5,26 @@
     android:layout_height="100dp"
     android:orientation="vertical"
     android:id="@+id/xyz"
+    app:cardCornerRadius="15dp"
     android:layout_margin="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/circleimage"
-        android:src="@drawable/neclace"/>
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/circleimage"/>
+
+
     <TextView
-        android:layout_marginTop="60dp"
+        android:id="@+id/textitem"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:text="necklace"
-        android:id="@+id/textitem"
-        android:gravity="center"/>
-
-
-
-
-
+        android:gravity="center"
+        android:layout_marginTop="70dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="59dp" />
 
 
 </androidx.cardview.widget.CardView>

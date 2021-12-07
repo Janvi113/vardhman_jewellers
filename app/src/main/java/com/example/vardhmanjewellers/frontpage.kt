@@ -1,34 +1,34 @@
 package com.example.vardhmanjewellers
 
 import adapter.myAdapter
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.vardhmanjewellers.databinding.ActivityFrontpageBinding
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_frontpage.*
+import kotlinx.android.synthetic.main.recyclerviewitems.*
 
 class frontpage : AppCompatActivity() {
-    lateinit var recyclerView: RecyclerView
-    lateinit var adapter: myAdapter
-    lateinit var recyclerView1: RecyclerView
-    lateinit var adapter1: topbrandsAdapter
+
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-    var colln = mutableListOf<Itemvia>()
-    var colln1 = mutableListOf<Topbrandsitem>()
+    lateinit var binding: ActivityFrontpageBinding
+    lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_frontpage)
-        setuprecyclerview()
-        setuprecyclerview1()
+        binding = ActivityFrontpageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        firestore = FirebaseFirestore.getInstance()
+        binding.recyclerview.layoutManager =
+            LinearLayoutManager(this@frontpage, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerview1.layoutManager =
+            LinearLayoutManager(this@frontpage, LinearLayoutManager.HORIZONTAL, false)
+        recyclersetup()
+        recyclersetup1()
         setup()
-        dummy()
-        dummy1()
-        dom()
         bottomnav.setOnNavigationItemSelectedListener {
             (it.isChecked)
             when (it.itemId) {
@@ -36,103 +36,93 @@ class frontpage : AppCompatActivity() {
             }
             true
         }
-
-
-        nav_view.setNavigationItemSelectedListener {
-            it.isChecked = true
-            when (it.itemId) {
-                R.id.profileid -> profilefrag()
-                R.id.rateid -> rate()
-                R.id.helpid -> help()
-                R.id.switchaccountid -> switch()
-                R.id.logoutid -> logout()
+        xyz.setOnClickListener {
+            Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+            nav_view.setNavigationItemSelectedListener {
+                it.isChecked = true
+                when (it.itemId) {
+                    R.id.profileid -> profilefrag()
+                    R.id.rateid -> rate()
+                    R.id.helpid -> help()
+                    R.id.switchaccountid -> switch()
+                    R.id.logoutid -> logout()
+                }
+                true
             }
-            true
+
         }
 
+        private fun recyclersetup1() {
+            firestore.collection("recyclecolln").get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        val user = documents.toObjects(Topbrandsitem::class.java)
+                        binding.recyclerview1.adapter = topbrandsAdapter(this, user)
+                    }
+
+
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
+                }
+        }
+
+        private fun recyclersetup() {
+            firestore.collection("recyclercollection").get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        val user = documents.toObjects(Itemvia::class.java)
+                        binding.recyclerview.adapter = myAdapter(this, user)
+                    }
+
+
+                }.addOnFailureListener {
+                    Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
+                }
+        }
+
+        private fun Homepage() {
+            Toast.makeText(this, "home screen", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun collection() {
+
+            Toast.makeText(this, "collection screen", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun logout() {            Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun switch() {
+            Toast.makeText(this, "switch Account", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun help() {
+            Toast.makeText(this, "help", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun rate() {
+            Toast.makeText(this, "Rate us", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun profilefrag() {
+            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+        }
+
+
+        private fun setup() {
+            actionBarDrawerToggle =
+                ActionBarDrawerToggle(this, abc, R.string.app_name, R.string.app_name)
+            actionBarDrawerToggle.syncState()
+            setSupportActionBar(goli)
+
+        }
+
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+                return true
+            }
+            return super.onOptionsItemSelected(item)
+        }
     }
-
-    private fun dom() {
-
-    }
-
-    private fun showcase(str: String) {
-        Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun Homepage() {
-        Toast.makeText(this, "home screen", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun collection() {
-
-        Toast.makeText(this, "collection screen", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun logout() {
-        Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun switch() {
-        Toast.makeText(this, "switch Account", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun help() {
-        Toast.makeText(this, "help", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun rate() {
-        Toast.makeText(this, "Rate us", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun profilefrag() {
-        Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun setuprecyclerview1() {
-        recyclerView1 = findViewById(R.id.recyclerview1)
-        adapter1 = topbrandsAdapter(this, colln1)
-        recyclerView1.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView1.adapter = adapter1
-    }
-
-
-    private fun dummy1() {
-        colln1.add(Topbrandsitem("$50,000", "Spiritual 22 karat gold\n om ring"))
-        colln1.add(Topbrandsitem("$33,194", "charming 950 pure\nplatinum and\nDiamond flora studs"))
-        colln1.add(Topbrandsitem("$39,678", "Bold 22 karat Yellow\nGold Geometric Ring"))
-        colln1.add(Topbrandsitem("$33,836", "Elegant Gold Mang\nTikka"))
-    }
-
-    private fun dummy() {
-        colln.add(Itemvia("Ring"))
-        colln.add(Itemvia("Necklaces"))
-        colln.add(Itemvia("Earings"))
-        colln.add(Itemvia("Bangles"))
-        colln.add(Itemvia("Anklet"))
-    }
-
-    private fun setup() {
-        actionBarDrawerToggle =
-            ActionBarDrawerToggle(this, abc, R.string.app_name, R.string.app_name)
-     actionBarDrawerToggle.syncState()
-        setSupportActionBar(goli)
-
 }
-
-
-    @SuppressLint("WrongConstant")
-    private fun setuprecyclerview() {
-        recyclerView=findViewById(R.id.recyclerview)
-        adapter=myAdapter(this,colln)
-        recyclerView.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        recyclerView.adapter=adapter
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(actionBarDrawerToggle.onOptionsItemSelected(item)){
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }
-    }
