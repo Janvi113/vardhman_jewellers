@@ -12,7 +12,7 @@ import com.google.common.collect.Iterables.size
 import kotlinx.coroutines.processNextEventInCurrentThread
 import java.nio.file.Files.size
 
-class adapter(val context: Context,val ringlist:ArrayList<jewelrrydata>): RecyclerView.Adapter<adapter.MyViewHolder>() {
+class adapter(val context: Context,val ringlist:List<jewelrrydata>): RecyclerView.Adapter<adapter.MyViewHolder>() {
 
 
 

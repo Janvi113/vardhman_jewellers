@@ -1,10 +1,14 @@
 package com.example.vardhmanjewellers
 
+import adapter.myAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.GridLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.vardhmanjewellers.databinding.ActivityRingssectionBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.*
@@ -14,39 +18,32 @@ class ringssection : AppCompatActivity() {
     lateinit var dbred: DatabaseReference
     lateinit var orecyclerview: RecyclerView
     lateinit var myadapter: adapter
+    lateinit var binding: ActivityRingssectionBinding
     lateinit var db: FirebaseFirestore
     lateinit var arrylist: ArrayList<jewelrrydata>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ringssection)
-        orecyclerview = findViewById(R.id.recyclererre)
-        orecyclerview.setHasFixedSize(true)
-        orecyclerview.layoutManager = LinearLayoutManager(this)
-        arrylist = arrayListOf()
-        myadapter = adapter(this, arrylist)
-        orecyclerview.adapter=myadapter
-        EventChangeListener()
-    }
-    private fun EventChangeListener(){
-        db= FirebaseFirestore.getInstance()
-        db.collection("goldrings").addSnapshotListener(object :EventListener<QuerySnapshot> {
-            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                if (error != null)
-                    Toast.makeText(this@ringssection, "54354", Toast.LENGTH_SHORT).show()
-               for (dc : DocumentChange in value?.documentChanges!!){
+        binding= ActivityRingssectionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+       // setContentView(R.layout.activity_ringssection)
+binding.recyclererre.layoutManager=GridLayoutManager(this,2)
 
-                   if(dc.type==DocumentChange.Type.ADDED){
-                       arrylist.add(dc.document.toObject(jewelrrydata::class.java))
-                   }
-               }
-                myadapter.notifyDataSetChanged()
+        db = FirebaseFirestore.getInstance()
+        getdata()
+    }
+
+    private fun getdata() {
+        db.collection("goldrings").get().addOnSuccessListener { documents ->
+
+                for (document in documents) {
+                    val user = documents.toObjects(jewelrrydata::class.java)
+                    binding.recyclererre.adapter=adapter(this,user)
+
+
+                }
 
             }
-
-
-
-
-        })
+        }
     }
-}
+
 

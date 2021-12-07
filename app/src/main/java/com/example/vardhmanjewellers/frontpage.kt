@@ -36,6 +36,7 @@ class frontpage : AppCompatActivity() {
             true
         }
 
+
         nav_view.setNavigationItemSelectedListener {
             it.isChecked = true
             when (it.itemId) {
