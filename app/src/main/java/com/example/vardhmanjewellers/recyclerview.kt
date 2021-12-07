@@ -19,7 +19,9 @@ class recyclerview : AppCompatActivity() {
                 i=i-1
                 amount.text="$i"
             }
+
         }
+     textView3.text=   intent.getStringExtra("yoyo")
 
     }
 }

@@ -35,15 +35,23 @@ binding.recyclererre.layoutManager=GridLayoutManager(this,2)
     private fun getdata() {
         db.collection("goldrings").get().addOnSuccessListener { documents ->
 
-                for (document in documents) {
-                    val user = documents.toObjects(jewelrrydata::class.java)
-                    binding.recyclererre.adapter=adapter(this,user)
+            for (document in documents) {
+                val user = documents.toObjects(jewelrrydata::class.java)
+                binding.recyclererre.adapter = adapter(this, user)
 
-
-                }
 
             }
         }
+
+
+
+
+
+
+
+
     }
+}
+
 
 

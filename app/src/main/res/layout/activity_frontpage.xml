@@ -59,13 +59,14 @@
                 android:layout_height="28dp"
                 android:layout_alignParentRight="true"
                 app:nbMaxTextLength="2"/>
+
             <com.nex3z.notificationbadge.NotificationBadge
                 android:id="@+id/badge1"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:layout_marginRight="100dp"
                 android:layout_alignParentRight="true"
-                app:nbMaxTextLength="2"/>
+                android:layout_marginRight="100dp"
+                app:nbMaxTextLength="2" />
 
         </RelativeLayout>
 
