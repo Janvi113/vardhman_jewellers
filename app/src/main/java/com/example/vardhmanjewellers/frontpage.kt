@@ -29,6 +29,7 @@ class frontpage : AppCompatActivity() {
         recyclersetup()
         recyclersetup1()
         setup()
+        Toast.makeText(this, "asd", Toast.LENGTH_SHORT).show()
         bottomnav.setOnNavigationItemSelectedListener {
             (it.isChecked)
             when (it.itemId) {
