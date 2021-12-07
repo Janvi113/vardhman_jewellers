@@ -12,12 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/nobar">
-        <activity
-            android:name=".MainActivity2"
-            android:exported="true" />
+
         <activity
             android:name=".frontpage"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".recyclerview"
             android:exported="true" />
@@ -33,11 +37,6 @@
         <activity
             android:name=".ringssection"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
