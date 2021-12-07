@@ -13,12 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/nobar">
         <activity
+            android:name=".MainActivity2"
+            android:exported="true" />
+        <activity
             android:name=".frontpage"
             android:exported="true" />
-
         <activity
             android:name=".recyclerview"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".loginpage"
             android:exported="true" />
@@ -37,7 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
