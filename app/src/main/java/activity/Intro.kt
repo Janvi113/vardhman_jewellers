@@ -1,10 +1,9 @@
-package com.example.vardhmanjewellers
+package activity
 
-import activity.login
-import activity.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.vardhmanjewellers.R
 import kotlinx.android.synthetic.main.activity_intro.*
 
 class intro : AppCompatActivity() {

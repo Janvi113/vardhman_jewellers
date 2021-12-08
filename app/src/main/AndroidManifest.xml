@@ -19,7 +19,7 @@
             android:name="activity.login"
             android:exported="true" />
         <activity
-            android:name=".intro"
+            android:name="activity.intro"
             android:exported="true" />
         <activity
             android:name="activity.favorites"
