@@ -1,12 +1,9 @@
-package com.example.vardhmanjewellers
+package activity
 
-import android.R.attr
-import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.Toast
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -16,9 +13,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.activity_otpverification.*
 import kotlinx.android.synthetic.main.activity_otpverification.view.*
 import java.util.concurrent.TimeUnit
-import android.R.attr.phoneNumber
-import android.R.attr.toAlpha
-import android.content.Intent
+import com.example.vardhmanjewellers.R
 
 
 class otpverification : AppCompatActivity() {

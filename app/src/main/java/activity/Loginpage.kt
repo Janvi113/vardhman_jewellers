@@ -1,10 +1,9 @@
-package com.example.vardhmanjewellers
+package activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
+import com.example.vardhmanjewellers.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential

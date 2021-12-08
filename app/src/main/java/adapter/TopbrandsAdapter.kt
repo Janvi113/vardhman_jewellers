@@ -1,6 +1,5 @@
-package com.example.vardhmanjewellers
+package adapter
 
-import adapter.myAdapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.vardhmanjewellers.R
+import Model.Topbrandsitem
 
 
 class topbrandsAdapter(val context: Context, val topbrands: List<Topbrandsitem>): RecyclerView.Adapter<topbrandsAdapter.MyViewHolder>() {

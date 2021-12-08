@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="activity.login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="100dp"
+        android:orientation="vertical"
+        android:outlineSpotShadowColor="@color/orange"
+        >
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:text="Welcome to vardhman jewellers"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="100dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:outlineSpotShadowColor="@color/orange"
+        >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="50dp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:shadowColor="@color/black"
+            android:text="LOGIN"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="Email ID" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            android:id="@+id/editTextTextPassword"/>
+
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/forgotpasswordid"
+            android:textAlignment="viewEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="Forgot password" />
+
+        <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:background="@drawable/btn_background"
+            android:layout_height="wrap_content"
+            android:text="login" />
+
+
+    </LinearLayout>
+</LinearLayout>

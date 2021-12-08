@@ -1,13 +1,12 @@
-package com.example.vardhmanjewellers
+package activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.vardhmanjewellers.R
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_recyclerview.*
-import kotlinx.android.synthetic.main.itemviewforrecyclerview.*
 
 class recyclerview : AppCompatActivity() {
     lateinit var db:FirebaseFirestore
@@ -37,7 +36,7 @@ class recyclerview : AppCompatActivity() {
         weit.text=wei
         Glide.with(this).load(purl).into(imageView3)
         addtocart.setOnClickListener{
-val intent1=Intent(this,AddToCart::class.java)
+val intent1=Intent(this, AddToCart::class.java)
             intent1.putExtra("productname",title)
             intent1.putExtra("url",purl)
             intent1.putExtra("weight",wei)

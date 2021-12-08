@@ -8,14 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.vardhmanjewellers.Itemvia
+import Model.Itemvia
 
 import com.example.vardhmanjewellers.R
-import com.example.vardhmanjewellers.ringssection
+import activity.ringssection
 import kotlinx.android.synthetic.main.recyclerviewitems.view.*
 
 
@@ -47,7 +46,7 @@ class myAdapter(private val context: Context, private val items: MutableList<Ite
 
         init{
             itemView.circleimage.setOnClickListener {
-               val intent=Intent(itemView.context,ringssection::class.java)
+               val intent=Intent(itemView.context, ringssection::class.java)
                 intent.putExtra("shrenu",textitem.text)
               startActivity(itemView.context, intent, Bundle.EMPTY)
             }

@@ -1,6 +1,9 @@
-package com.example.vardhmanjewellers
+package activity
 
+import Model.Itemvia
+import Model.Topbrandsitem
 import adapter.myAdapter
+import adapter.topbrandsAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +11,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.vardhmanjewellers.*
 import com.example.vardhmanjewellers.databinding.ActivityFrontpageBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_frontpage.*
@@ -63,22 +67,9 @@ class frontpage : AppCompatActivity() {
 
     }
 
-        private fun recyclersetup1() {
-            firestore.collection("recyclecolln").get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
-                        val user = documents.toObjects(Topbrandsitem::class.java)
-                        binding.recyclerview1.adapter = topbrandsAdapter(this, user)
-                    }
 
 
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
-                }
-        }
-
-        private fun recyclersetup() {
+    private fun recyclersetup() {
             firestore.collection("recyclercollection").get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
@@ -91,6 +82,20 @@ class frontpage : AppCompatActivity() {
                     Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
                 }
         }
+    private fun recyclersetup1() {
+        firestore.collection("recyclecolln").get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val user = documents.toObjects(Topbrandsitem::class.java)
+                    binding.recyclerview1.adapter = topbrandsAdapter(this, user)
+                }
+
+
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
+            }
+    }
 
         private fun Homepage() {
             Toast.makeText(this, "home screen", Toast.LENGTH_SHORT).show()
@@ -118,7 +123,7 @@ class frontpage : AppCompatActivity() {
         }
 
         private fun profilefrag() {
-            val intent=Intent(this,profile::class.java)
+            val intent=Intent(this, profile::class.java)
             startActivity(intent)
         }
 

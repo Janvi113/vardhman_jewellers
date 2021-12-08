@@ -1,4 +1,4 @@
-package com.example.vardhmanjewellers
+package adapter
 
 import android.content.Context
 import android.view.*
@@ -6,8 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.vardhmanjewellers.R
+import Model.favmembers
 
-class cartadapter(val context: Context,val fullcartitems:List<cartmembers>):RecyclerView.Adapter<cartadapter.myviewholder>() {
+class favadapter(val context: Context,val fullfavitems:List<favmembers>):RecyclerView.Adapter<favadapter.myviewholder>() {
 
 
 
@@ -20,14 +22,14 @@ class cartadapter(val context: Context,val fullcartitems:List<cartmembers>):Recy
 
     override fun onBindViewHolder(holder: myviewholder, position: Int) {
 
-        val currentitem=fullcartitems[position]
+        val currentitem=fullfavitems[position]
         holder.productname.text=currentitem.productname
         holder.weight.text=currentitem.weight
         Glide.with(context).load(currentitem.purl).into(holder.pic)
     }
 
     override fun getItemCount(): Int {
-     return  fullcartitems.size
+        return  fullfavitems.size
     }
     class myviewholder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {

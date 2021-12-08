@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/abc"
-    tools:context=".frontpage">
+    tools:context="activity.frontpage">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

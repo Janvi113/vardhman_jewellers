@@ -1,5 +1,8 @@
 package com.example.vardhmanjewellers
 
+import Model.jewelrrydata
+import activity.favorites
+import activity.recyclerview
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -48,7 +50,7 @@ class adapter(val context: Context, val ringlist: MutableList<jewelrrydata>): Re
         val ringname: TextView = itemView.findViewById(R.id.productname)
         init {
             itemView.jewelypic.setOnClickListener {
-                val intent=Intent(itemView.context,recyclerview::class.java)
+                val intent=Intent(itemView.context, recyclerview::class.java)
              intent.putExtra("url",ringlist[adapterPosition].purl)
                 intent.putExtra("ringname",ringname.text)
                 intent.putExtra("weight",weight.text)
@@ -63,7 +65,7 @@ itemView.whislist.setOnClickListener{
     user["purl"]=ringlist[adapterPosition].purl
     user["weight"]=weight.toString()
     db.collection("favcollection").add(user)
-    val intent=Intent(itemView.context,favorites::class.java)
+    val intent=Intent(itemView.context, favorites::class.java)
     startActivity(context,intent, Bundle.EMPTY)
 
 

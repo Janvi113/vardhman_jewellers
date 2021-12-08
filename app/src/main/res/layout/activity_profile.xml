@@ -4,31 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profile">
+    tools:context="activity.profile">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:orientation="horizontal"
         android:background="@drawable/drawable"
-        tools:ignore="MissingConstraints" >
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-5dp">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/imageprofile"
-           android:layout_marginTop="100dp"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/imageprofile" />
+
         <TextView
+            android:id="@+id/yours"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Janvi chhura"
-            android:layout_marginTop="110dp"
             android:layout_marginLeft="10dp"
-            android:textSize="40sp"
+            android:layout_marginTop="110dp"
             android:fontFamily="@font/font3"
-            style="@style/TextAppearance.AppCompat.Title"/>
-
-
+            android:text="Janvi chhura"
+            android:textSize="40sp" />
 
 
     </LinearLayout>
@@ -36,37 +39,21 @@
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:cardCornerRadius="20dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" >
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
-            android:layout_margin="50dp"/>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.831"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" >
+        app:layout_constraintVertical_bias="0.406">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_favorite_24"
-            android:layout_margin="50dp"/>
+            android:layout_margin="50dp"
+            android:src="@drawable/ic_baseline_shopping_cart_24" />
+
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
@@ -137,13 +124,16 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <Button
+            android:id="@+id/savebtn"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_drawable"
             android:text="Upadte"/>
     </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

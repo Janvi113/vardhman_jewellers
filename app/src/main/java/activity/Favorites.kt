@@ -1,10 +1,12 @@
-package com.example.vardhmanjewellers
+package activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.vardhmanjewellers.R
+import adapter.favadapter
+import Model.favmembers
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_add_to_cart.*
 import kotlinx.android.synthetic.main.activity_favorites.*
 
 class favorites : AppCompatActivity() {
