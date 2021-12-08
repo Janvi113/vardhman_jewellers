@@ -12,13 +12,11 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.common.collect.Iterables.size
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.itemviewforrecyclerview.view.*
-import kotlinx.coroutines.processNextEventInCurrentThread
-import java.nio.file.Files.size
-import kotlin.math.log
+lateinit var db:FirebaseFirestore
 
-class adapter(val context: Context,val ringlist:List<jewelrrydata>): RecyclerView.Adapter<adapter.MyViewHolder>() {
+class adapter(val context: Context, val ringlist: MutableList<jewelrrydata>): RecyclerView.Adapter<adapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -30,7 +28,7 @@ class adapter(val context: Context,val ringlist:List<jewelrrydata>): RecyclerVie
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentitem = ringlist[position]
-        holder.ringname.text = currentitem.ringname
+        holder.ringname.text = currentitem.productname
         holder.weight.text = currentitem.weight
         Glide.with(context).load(currentitem.purl).into(holder.pic)
 
@@ -42,7 +40,7 @@ class adapter(val context: Context,val ringlist:List<jewelrrydata>): RecyclerVie
         return ringlist.size
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+   inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val weight: TextView = itemView.findViewById(R.id.weight)
 
@@ -51,10 +49,30 @@ class adapter(val context: Context,val ringlist:List<jewelrrydata>): RecyclerVie
         init {
             itemView.jewelypic.setOnClickListener {
                 val intent=Intent(itemView.context,recyclerview::class.java)
-                intent.putExtra("yoyo",ringname.text)
+             intent.putExtra("url",ringlist[adapterPosition].purl)
+                intent.putExtra("ringname",ringname.text)
+                intent.putExtra("weight",weight.text)
                 startActivity(itemView.context,intent, Bundle.EMPTY)
+
             }
+
+itemView.whislist.setOnClickListener{
+    db= FirebaseFirestore.getInstance()
+    val user:MutableMap<String,Any> =HashMap()
+    user["productname"]=ringname.text.toString()
+    user["purl"]=ringlist[adapterPosition].purl
+    user["weight"]=weight.toString()
+    db.collection("favcollection").add(user)
+    val intent=Intent(itemView.context,favorites::class.java)
+    startActivity(context,intent, Bundle.EMPTY)
+
+
+}
+
+
         }
+
+
 
 
     }

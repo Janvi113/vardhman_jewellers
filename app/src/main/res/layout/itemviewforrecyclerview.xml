@@ -72,8 +72,8 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="18dp"
                     android:layout_marginBottom="18dp"
-                    android:paddingBottom="10dp"
-                    android:button="@drawable/selector_whistlist" />
+                    android:button="@drawable/selector_whistlist"
+                    android:paddingBottom="10dp" />
 
             </RelativeLayout>
 

@@ -49,6 +49,17 @@ class frontpage : AppCompatActivity() {
             }
             true
         }
+        nav_view.setNavigationItemSelectedListener {
+            it.isChecked = true
+            when (it.itemId) {
+                R.id.profileid -> profilefrag()
+                R.id.rateid -> rate()
+                R.id.helpid -> help()
+                R.id.switchaccountid -> switch()
+                R.id.logoutid -> logout()
+            }
+            true
+        }
 
     }
 
