@@ -2,22 +2,14 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="180dp"
-android:layout_marginLeft="20dp"
-
-    android:layout_marginTop="10dp"
-
+    android:layout_width="150dp"
+    android:layout_margin="20dp"
     app:cardCornerRadius="20dp"
-
     android:layout_height="200dp">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-
-        >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/weight"
@@ -37,8 +29,8 @@ android:layout_marginLeft="20dp"
             android:id="@+id/productname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:text="I love you janvi meri bacchi"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.148"
@@ -49,9 +41,9 @@ android:layout_marginLeft="20dp"
         <ImageView
             android:id="@+id/jewelypic"
 
-            android:layout_width="182dp"
+            android:layout_width="match_parent"
             android:layout_height="123dp"
-android:scaleType="fitCenter"
+            android:scaleType="fitCenter"
 
 
             app:layout_constraintBottom_toBottomOf="parent"
@@ -62,22 +54,30 @@ android:scaleType="fitCenter"
             app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/fav"
-android:layout_marginRight="10dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="10dp"
-            android:scaleType="fitCenter"
 
 
-            android:src="@drawable/outline_fav"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+                <CheckBox
+                    android:id="@+id/whislist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginBottom="18dp"
+                    android:paddingBottom="10dp"
+                    android:button="@drawable/selector_whistlist" />
+
+            </RelativeLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

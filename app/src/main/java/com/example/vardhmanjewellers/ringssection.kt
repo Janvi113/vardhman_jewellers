@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.vardhmanjewellers.databinding.ActivityRingssectionBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -26,8 +27,7 @@ class ringssection : AppCompatActivity() {
         binding= ActivityRingssectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
        // setContentView(R.layout.activity_ringssection)
-binding.recyclererre.layoutManager=GridLayoutManager(this,2)
-
+       binding.recyclererre.layoutManager=GridLayoutManager(this,2)
         db = FirebaseFirestore.getInstance()
         getdata()
     }

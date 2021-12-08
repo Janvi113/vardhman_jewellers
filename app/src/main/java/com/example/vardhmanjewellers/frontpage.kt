@@ -1,6 +1,7 @@
 package com.example.vardhmanjewellers
 
 import adapter.myAdapter
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -29,7 +30,7 @@ class frontpage : AppCompatActivity() {
         recyclersetup()
         recyclersetup1()
         setup()
-        Toast.makeText(this, "asd", Toast.LENGTH_SHORT).show()
+
         bottomnav.setOnNavigationItemSelectedListener {
             (it.isChecked)
             when (it.itemId) {
@@ -37,10 +38,21 @@ class frontpage : AppCompatActivity() {
             }
             true
         }
+        nav_view.setNavigationItemSelectedListener {
+            it.isChecked = true
+            when (it.itemId) {
+                R.id.profileid -> profilefrag()
+                R.id.rateid -> rate()
+                R.id.helpid -> help()
+                R.id.switchaccountid -> switch()
+                R.id.logoutid -> logout()
+            }
+            true
+        }
 
     }
 
-        fun recyclersetup1() {
+        private fun recyclersetup1() {
             firestore.collection("recyclecolln").get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
@@ -55,7 +67,7 @@ class frontpage : AppCompatActivity() {
                 }
         }
 
-        fun recyclersetup() {
+        private fun recyclersetup() {
             firestore.collection("recyclercollection").get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
@@ -69,36 +81,38 @@ class frontpage : AppCompatActivity() {
                 }
         }
 
-        fun Homepage() {
+        private fun Homepage() {
             Toast.makeText(this, "home screen", Toast.LENGTH_SHORT).show()
         }
 
-        fun collection() {
+        private fun collection() {
 
             Toast.makeText(this, "collection screen", Toast.LENGTH_SHORT).show()
         }
 
-        fun logout() {            Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show()
+        private fun logout() {
+            Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show()
         }
 
-        fun switch() {
+        private fun switch() {
             Toast.makeText(this, "switch Account", Toast.LENGTH_SHORT).show()
         }
 
-        fun help() {
+        private fun help() {
             Toast.makeText(this, "help", Toast.LENGTH_SHORT).show()
         }
 
-        fun rate() {
+        private fun rate() {
             Toast.makeText(this, "Rate us", Toast.LENGTH_SHORT).show()
         }
 
-        fun profilefrag() {
-            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+        private fun profilefrag() {
+            val intent=Intent(this,profile::class.java)
+            startActivity(intent)
         }
 
 
-        fun setup() {
+        private fun setup() {
             actionBarDrawerToggle =
                 ActionBarDrawerToggle(this, abc, R.string.app_name, R.string.app_name)
             actionBarDrawerToggle.syncState()
@@ -112,5 +126,5 @@ class frontpage : AppCompatActivity() {
             }
             return super.onOptionsItemSelected(item)
         }
+    }
 
-}

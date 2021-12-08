@@ -23,7 +23,7 @@ android:fillViewport="true"
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="413dp"
+            android:layout_width="match_parent"
             android:layout_height="348dp"
 
 
@@ -37,7 +37,7 @@ android:fillViewport="true"
 
         <TextView
             android:id="@+id/textView3"
-
+            android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:fontFamily="@font/font2"
@@ -56,8 +56,7 @@ android:fillViewport="true"
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-
-
+            android:layout_marginRight="15dp"
             android:text="24 carat Pure gold"
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -90,7 +89,7 @@ android:fillViewport="true"
             android:id="@+id/button"
             android:layout_width="350dp"
             android:layout_height="45dp"
-
+            android:layout_marginBottom="10dp"
             android:background="@drawable/roundedebutton"
             android:text="ADD to cart"
             android:textStyle="bold"
@@ -120,18 +119,18 @@ android:fillViewport="true"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.536" />
 
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="40dp"
 
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/ic_baseline_arrow_back_ios_24"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.013"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
+            app:layout_constraintVertical_bias="0.051" />
 
         <TextView
             android:id="@+id/textView5"
@@ -139,7 +138,7 @@ android:fillViewport="true"
             android:layout_height="wrap_content"
 
             android:layout_marginTop="84dp"
-
+            android:layout_marginLeft="5dp"
             android:text="The Classic Ring, with its beautiful silhouette, is designed for men. Designed with elegance in mind, and fashioned with impeccable craftsmanship, the Classic Ring is the perfect finishing touch to any outfit."
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,7 +155,7 @@ android:fillViewport="true"
 
             android:text="Details:"
             android:textSize="15sp"
-
+            android:layout_marginLeft="5dp"
             android:textStyle="bold"
 
             app:layout_constraintBottom_toBottomOf="parent"
@@ -175,7 +174,7 @@ android:fillViewport="true"
             android:textSize="15sp"
 
             android:textStyle="bold"
-
+            android:layout_marginLeft="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -192,7 +191,7 @@ android:fillViewport="true"
             android:textSize="15sp"
 
             android:textStyle="bold"
-
+            android:layout_marginLeft="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -235,8 +234,6 @@ android:fillViewport="true"
             android:textAlignment="textEnd"
             android:textColor="@color/orange"
             android:textSize="18sp"
-
-
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
