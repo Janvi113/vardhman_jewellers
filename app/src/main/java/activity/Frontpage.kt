@@ -34,6 +34,14 @@ class frontpage : AppCompatActivity() {
         recyclersetup()
         recyclersetup1()
         setup()
+        binding.cartid.setOnClickListener {
+            val intent=Intent(this,AddToCart::class.java)
+            startActivity(intent)
+        }
+        binding.favid.setOnClickListener {
+            val intent=Intent(this,favorites::class.java)
+            startActivity(intent)
+        }
 
         bottomnav.setOnNavigationItemSelectedListener {
             (it.isChecked)

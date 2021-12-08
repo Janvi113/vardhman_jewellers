@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -54,7 +55,7 @@ class adapter(val context: Context, val ringlist: MutableList<jewelrrydata>): Re
              intent.putExtra("url",ringlist[adapterPosition].purl)
                 intent.putExtra("ringname",ringname.text)
                 intent.putExtra("weight",weight.text)
-                startActivity(itemView.context,intent, Bundle.EMPTY)
+            startActivity(context,intent, Bundle.EMPTY)
 
             }
 
@@ -63,10 +64,10 @@ itemView.whislist.setOnClickListener{
     val user:MutableMap<String,Any> =HashMap()
     user["productname"]=ringname.text.toString()
     user["purl"]=ringlist[adapterPosition].purl
-    user["weight"]=weight.toString()
+    user["weight"]=weight.text.toString()
     db.collection("favcollection").add(user)
     val intent=Intent(itemView.context, favorites::class.java)
-    startActivity(context,intent, Bundle.EMPTY)
+
 
 
 }

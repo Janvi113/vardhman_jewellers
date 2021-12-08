@@ -41,12 +41,14 @@
                 android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="50dp"
+                android:id="@+id/favid"
                 android:src="@drawable/ic_baseline_favorite_24" />
 
             <ImageView
                 android:id="@+id/cartid"
                 android:layout_width="30dp"
                 android:layout_height="50dp"
+
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="100dp"
                 android:src="@drawable/ic_baseline_shopping_cart_24" />

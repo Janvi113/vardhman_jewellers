@@ -41,7 +41,7 @@ val intent1=Intent(this, AddToCart::class.java)
             intent1.putExtra("url",purl)
             intent1.putExtra("weight",wei)
             adddatatocart(title,purl,wei)
-startActivity(intent1)
+
 
 
         }
