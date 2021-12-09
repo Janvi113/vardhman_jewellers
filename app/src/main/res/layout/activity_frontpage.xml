@@ -9,20 +9,49 @@
     tools:context="activity.frontpage">
 
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:layout_height="170dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.325">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpagerimage"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:outlineAmbientShadowColor="@color/gold"
+            android:outlineSpotShadowColor="@color/gold"
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:background="#FFFFFF"
             android:orientation="horizontal"
-            android:outlineAmbientShadowColor="@color/orange"
-            android:outlineSpotShadowColor="@color/orange"
-            android:layout_height="60dp"
             android:padding="5dp"
-            android:layout_marginTop="5dp"
-            tools:ignore="MissingConstraints">
+
+            app:layout_constraintBottom_toTopOf="@+id/recyclerview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/goli"
@@ -54,13 +83,12 @@
                 android:src="@drawable/ic_baseline_shopping_cart_24" />
 
 
-
             <com.nex3z.notificationbadge.NotificationBadge
                 android:id="@+id/badge"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_alignParentRight="true"
-                app:nbMaxTextLength="2"/>
+                app:nbMaxTextLength="2" />
 
             <com.nex3z.notificationbadge.NotificationBadge
                 android:id="@+id/badge1"
@@ -77,36 +105,40 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.253" />
+            app:layout_constraintVertical_bias="0.104" />
 
         <TextView
+            android:elevation="10dp"
+            android:shadowColor="@color/gold"
+            android:shadowRadius="9"
             android:id="@+id/textView3"
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="match_parent"
             android:layout_height="34dp"
+            android:layout_marginBottom="324dp"
             android:paddingLeft="10dp"
             android:text="Today's Shopping"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerview"
-            app:layout_constraintVertical_bias="0.054" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview1"
             android:layout_width="match_parent"
-            android:layout_height="333dp"
+            android:layout_height="267dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.859" />
+            app:layout_constraintVertical_bias="0.877" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:background="@color/gold"
@@ -120,6 +152,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

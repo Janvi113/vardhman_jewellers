@@ -1,15 +1,19 @@
 package activity
 
 import android.app.Dialog
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
+import com.example.vardhmanjewellers.R
 import com.example.vardhmanjewellers.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class profile : AppCompatActivity() {
@@ -17,22 +21,21 @@ class profile : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     lateinit var firebase: DatabaseReference
     lateinit var binding: ActivityProfileBinding
-    lateinit var storageReference: StorageReference
-    lateinit var imageuri:Uri
-    lateinit var dialog: Dialog
+    lateinit var button: Button
+    lateinit var imageView: CircleImageView
+
+    companion object{
+        val IMAGE_REQUEST_CODE=100
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityProfileBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+     //   binding= ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_profile)
          firestore= FirebaseFirestore.getInstance()
          auth= FirebaseAuth.getInstance()
-
-                binding.savebtn.setOnClickListener {
-                    val name= binding.fullNameProfile.editText?.text.toString()
-                    val email=binding.fullNameEmail.editText?.text.toString()
-                    val phoneno=binding.fullNameEmail.editText?.text.toString()
-                    val password=binding.fullNameEmail.editText?.text.toString()
-                    savestore(name, email, phoneno, password)
+         button=findViewById(R.id.savebtn)
+        imageView=findViewById(R.id.imaepicid)
+              button.setOnClickListener {
                     profilepic()
                 }
 
@@ -40,37 +43,22 @@ class profile : AppCompatActivity() {
     }
 
     private fun profilepic() {
-        firestore.collection("Users").get().addOnCompleteListener {
-
-                if (it.isSuccessful) {
-                    val result: StringBuffer = StringBuffer()
-
-                    for (document in it.result!!) {
-                        result.append(document.data.get("name")).append("\n\n")
-                    }
-                    yours.setText(result)
-
-
-                }
+        val intent= Intent(Intent.ACTION_PICK)
+        intent.type="Image/"
+        startActivityForResult(intent, IMAGE_REQUEST_CODE)
 
         }
 
-
-
-    }
-    private fun savestore(name: String, email: String, phoneno: String, password: String) {
-
-        val users: MutableMap<String,Any> =HashMap()
-        users["name"]=name
-
-        firestore.collection("Users").add(users).addOnSuccessListener {
-            Toast.makeText(this, "sucessfull", Toast.LENGTH_SHORT).show()
-        }.addOnFailureListener {
-            Toast.makeText(this, "unsucessful", Toast.LENGTH_SHORT).show()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode== IMAGE_REQUEST_CODE&&resultCode== RESULT_OK)
+        {
+            imageView.setImageURI(data?.data)
         }
-
-
     }
+
+
+
  
 }
 

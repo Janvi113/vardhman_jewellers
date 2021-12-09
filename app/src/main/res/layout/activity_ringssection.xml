@@ -20,14 +20,16 @@
 
         <TextView
             android:id="@+id/headline"
-            android:layout_width="0dp"
-
+            android:layout_width="wrap_content"
+            android:text="Shopping"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             style="@style/TextAppearance.AppCompat.Title"
             android:textSize="30sp"
+            android:fontFamily="@font/font3"
             android:gravity="center"
-            android:layout_weight="1"/>
+           />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

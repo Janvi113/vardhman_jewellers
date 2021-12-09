@@ -73,8 +73,10 @@
             android:layout_marginTop="30dp"
             android:id="@+id/editTextTextPassword2"
             android:layout_width="match_parent"
+            android:ems="10"
             android:layout_height="wrap_content"
             android:hint="Password"
+             android:inputType="textPassword"
             />
 
         <EditText

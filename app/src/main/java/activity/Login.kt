@@ -8,42 +8,28 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.vardhmanjewellers.R
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_login.*
 
 class login : AppCompatActivity() {
     lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var editTextTextEmailAddress: EditText
-    private lateinit var editTextTextPassword: EditText
-    private lateinit var button3: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        editTextTextEmailAddress=findViewById(R.id.editTextTextEmailAddress)
-        editTextTextPassword=findViewById(R.id.editTextTextPassword)
-        button3=findViewById(R.id.button3)
         firebaseAuth = FirebaseAuth.getInstance()
 
 
         button3.setOnClickListener {
 
-            val email = editTextTextEmailAddress.text.toString().trim()
-            val password = editTextTextPassword.text.toString().trim()
-            if (email.isEmpty()) {
-                editTextTextEmailAddress.error = "email is required"
-                return@setOnClickListener
-
-            } else if (password.isEmpty()) {
-                editTextTextPassword.error = "Password is required"
-                return@setOnClickListener
-
-            }
-            else if(editTextTextPassword.length()>6){
-                editTextTextPassword.error = "Password should be greater than 6 character"
-                return@setOnClickListener
+            val email = editTextTextEmailAddress.editableText.toString().trim()
+            val password = editTextTextPassword.editableText.toString().trim()
+            if (email.isBlank()||password.isBlank()){
+                Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show()
             }
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                 if (it.isSuccessful){
                     Toast.makeText(this, "sucessfully login", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this,MainActivity::class.java))
+                    startActivity(Intent(this,frontpage::class.java))
                     finish()
                 }
                 else{

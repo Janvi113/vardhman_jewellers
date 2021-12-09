@@ -17,14 +17,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064">
+        app:layout_constraintVertical_bias="1.0">
 
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="334dp"
-            android:layout_marginStart="4dp"
             android:background="@drawable/roundedimage"
             android:scaleType="fitXY"
             android:src="@drawable/ring"
@@ -63,13 +62,13 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.492" />
+            app:layout_constraintVertical_bias="0.437" />
 
         <Button
             android:id="@+id/backkrnah"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/ic_baseline_arrow_back_ios_24"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +82,7 @@
             android:id="@+id/weit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="292dp"
+            android:layout_marginBottom="248dp"
             android:text="$800"
             android:textAlignment="textEnd"
             android:textColor="@color/orange"
@@ -91,7 +90,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintHorizontal_bias="0.972"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -117,10 +116,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/addtocart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.054"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.204"
+            app:layout_constraintVertical_bias="0.318"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -132,7 +131,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/addtocart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5"
             app:layout_constraintVertical_bias="0.0"
@@ -162,10 +161,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.011"
+            app:layout_constraintHorizontal_bias="0.045"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:layout_constraintVertical_bias="0.61"
+            app:layout_constraintVertical_bias="0.556"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
