@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vardhmanjewellers.R
 import Model.Topbrandsitem
+import activity.recyclerview
+import android.content.Intent
+import android.os.Bundle
+import androidx.core.content.ContextCompat.startActivity
 import kotlinx.android.synthetic.main.recycleritem1.view.*
 
 
@@ -36,6 +40,15 @@ class topbrandsAdapter(val context: Context, val topbrands: List<Topbrandsitem>)
         val topbrandimage=itemView.findViewById<ImageView>(R.id.topbrandimage)
         val topbrandtext=itemView.findViewById<TextView>(R.id.topbrandprice)
         val topbranddes=itemView.findViewById<TextView>(R.id.topbranddes)
+        init {
+            itemView.topbrandimage.setOnClickListener {
+                val intent=Intent(context,recyclerview::class.java)
+                intent.putExtra("weight",topbrandtext.text.toString())
+                intent.putExtra("url",topbrands[adapterPosition].image)
+                intent.putExtra("ringname",topbranddes.text.toString())
+                startActivity(context,intent, Bundle.EMPTY)
+            }
+        }
 
 
 

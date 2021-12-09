@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
 
-        },3000)
+        },2700)
 
        // val intent=Intent(this, intro::class.java)
        // intent.putExtra("name","9340469602")
