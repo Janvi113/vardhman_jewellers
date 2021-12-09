@@ -14,8 +14,8 @@
 
      <ImageView
          android:id="@+id/cartimage"
-         android:layout_width="wrap_content"
-         android:layout_height="100dp"
+         android:layout_width="118dp"
+         android:layout_height="77dp"
 
          android:scaleType="fitStart"
          android:src="@drawable/anklet"
@@ -26,33 +26,50 @@
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintVertical_bias="0.03" />
 
+     <ImageView
+         android:id="@+id/deletedata"
+         android:layout_width="27dp"
+         android:layout_height="30dp"
+android:layout_marginTop="10dp"
+         android:layout_marginRight="10dp"
+         android:scaleType="fitStart"
+         android:src="@drawable/ic_baseline_delete_24"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="1.0"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.016" />
+
      <TextView
          android:id="@+id/productnamecart"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
+         android:layout_marginBottom="10dp"
          android:text="productname"
          android:textSize="20sp"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.027"
+         app:layout_constraintHorizontal_bias="0.0"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.869" />
+         app:layout_constraintVertical_bias="0.823" />
 
      <TextView
+         android:id="@+id/cartweight"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="weight"
-android:textStyle="bold"
-         android:id="@+id/cartweight"
+         android:textColor="@color/orange"
          android:textSize="20sp"
+         android:textStyle="bold"
 
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.913"
+         app:layout_constraintHorizontal_bias="0.445"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.092" />
+         app:layout_constraintVertical_bias="0.121" />
 
 
  </androidx.constraintlayout.widget.ConstraintLayout>

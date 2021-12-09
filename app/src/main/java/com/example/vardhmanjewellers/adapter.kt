@@ -59,13 +59,14 @@ class adapter(val context: Context, val ringlist: MutableList<jewelrrydata>): Re
 
             }
 
+
 itemView.whislist.setOnClickListener{
     db= FirebaseFirestore.getInstance()
     val user:MutableMap<String,Any> =HashMap()
     user["productname"]=ringname.text.toString()
     user["purl"]=ringlist[adapterPosition].purl
     user["weight"]=weight.text.toString()
-    db.collection("favcollection").add(user)
+    db.collection("favcollection").document("${ringname.text}").set(user)
     val intent=Intent(itemView.context, favorites::class.java)
 
 
