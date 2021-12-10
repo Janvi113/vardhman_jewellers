@@ -30,21 +30,21 @@
     <TextView
         android:id="@+id/textView10"
         style="@style/TextAppearance.AppCompat.Headline"
-        android:layout_width="404dp"
-        android:layout_height="141dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:fontFamily="cursive"
 
         android:text="  Let's begin our journey "
 
         android:textColor="@color/orange"
-        android:textSize="45sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintVertical_bias="0.291" />
 
     <Button
         android:id="@+id/btn1"
