@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vardhmanjewellers.adapter
 import com.example.vardhmanjewellers.databinding.ActivityRingssectionBinding
 import Model.jewelrrydata
+import android.content.Intent
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.*
+import kotlinx.android.synthetic.main.activity_ringssection.*
 
 class ringssection : AppCompatActivity() {
     lateinit var dbred: DatabaseReference
@@ -24,6 +26,12 @@ class ringssection : AppCompatActivity() {
        // setContentView(R.layout.activity_ringssection)
        binding.recyclererre.layoutManager=GridLayoutManager(this,2)
         db = FirebaseFirestore.getInstance()
+        backkrnah.setOnClickListener {
+            val intent=Intent(this,frontpage::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         getdata()
 
     }

@@ -11,12 +11,19 @@
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:id="@+id/imageback"
+        <Button
+            android:id="@+id/backkrnah"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+
+            android:background="@drawable/ic_baseline_arrow_back_ios_24"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
 
         <TextView
             android:id="@+id/headline"
@@ -35,13 +42,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclererre"
         android:layout_width="match_parent"
-        android:layout_height="660dp"
+        android:layout_height="671dp"
         android:padding="4dp"
+       android:layout_marginLeft="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.833"
         tools:listitem="@layout/itemviewforrecyclerview" />
 </androidx.constraintlayout.widget.ConstraintLayout>

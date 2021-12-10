@@ -34,11 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         },2700)
 
-       // val intent=Intent(this, intro::class.java)
-       // intent.putExtra("name","9340469602")
-         //startActivity(intent)
-       // finish()
-
 
     }
 

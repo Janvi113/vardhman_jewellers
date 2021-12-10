@@ -1,26 +1,27 @@
 package activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthOptions
-import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.activity_otpverification.*
 import kotlinx.android.synthetic.main.activity_otpverification.view.*
 import java.util.concurrent.TimeUnit
 import com.example.vardhmanjewellers.R
+import com.google.common.base.Verify
+import com.google.firebase.auth.*
 
 
 class otpverification : AppCompatActivity() {
-var otpidd="no"
+
 
     lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,71 +31,37 @@ var otpidd="no"
         firebaseAuth = FirebaseAuth.getInstance()
 
         setContentView(R.layout.activity_otpverification)
-        otpsend()
+        val storedVerificationId=intent.getStringExtra("storedVerificationId")
+        numberentred.text="+91"+intent.getStringExtra("number")
+        Login.setOnClickListener{
+            var otp=otp_edit_box1.text.toString().trim()+otp_edit_box2.text.toString().trim()+otp_edit_box3.text.toString().trim()+otp_edit_box4.text.toString().trim()+otp_edit_box5.text.toString().trim()+otp_edit_box6.text.toString().trim()
+
+            if(!otp.isEmpty()){
+                val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(
+                    storedVerificationId.toString(), otp)
+                signInWithPhoneAuthCredential(credential)
+            }else{
+                Toast.makeText(this,"Enter OTP",Toast.LENGTH_SHORT).show()
+            }
+        }
         digitauto()
-      /*  button2.setOnClickListener()
-        {
-          val intent=Intent(this,loginpage::class.java)
-            intent.putExtra("no1",otp_edit_box1.text.toString())
-            intent.putExtra("no2",otp_edit_box2.text.toString())
-            intent.putExtra("no3",otp_edit_box3.text.toString())
-            intent.putExtra("no4",otp_edit_box4.text.toString())
-            intent.putExtra("no5",otp_edit_box5.text.toString())
-            intent.putExtra("no6",otp_edit_box6.text.toString())
-            intent.putExtra("otpkaid",otpidd)
-            startActivity(intent)
-        }*/
-
-
-
-
-
-
-
-
-        //numberentred.text = "+919340469602"
-
-
     }
 
+    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    startActivity(Intent(applicationContext, frontpage::class.java))
+                    finish()
+// ...
+                } else {
 
+                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
 
-private  fun verificatoncallbacks(){
-    mCallbacks= object : PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
-        override fun onVerificationCompleted(p0: PhoneAuthCredential) {
-            Toast.makeText(this@otpverification, "succesful", Toast.LENGTH_SHORT).show()
-
-        }
-
-        override fun onVerificationFailed(p0: FirebaseException) {
-            Toast.makeText(this@otpverification, "failed", Toast.LENGTH_SHORT).show()
-
-        }
-
-        override fun onCodeSent(otpid:String , p1: PhoneAuthProvider.ForceResendingToken) {
-            Toast.makeText(this@otpverification, "sended", Toast.LENGTH_SHORT).show()
-            otpidd= otpid
-
-
-
-
-
-        }
-
-    }
-}
-    private fun otpsend() {
-
-        verificatoncallbacks()
-        val options = PhoneAuthOptions.newBuilder(firebaseAuth)
-            .setPhoneNumber("+919340469602")       // Phone number to verify
-            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-            .setActivity(this)                 // Activity (for callback binding)
-            .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
-            .build()
-        PhoneAuthProvider.verifyPhoneNumber(options)
-        verificatoncallbacks()
-
+                        Toast.makeText(this,"Invalid OTP",Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
     }
 
 

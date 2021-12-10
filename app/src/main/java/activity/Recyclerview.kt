@@ -21,6 +21,7 @@ class recyclerview : AppCompatActivity() {
         val title=intent.getStringExtra("ringname").toString()
         val purl=intent.getStringExtra("url").toString()
         val wei=intent.getStringExtra("weight").toString()
+
      textView3.text= intent.getStringExtra("ringname")
 
         weit.text=wei

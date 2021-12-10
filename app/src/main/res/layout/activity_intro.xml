@@ -51,9 +51,10 @@
         android:layout_width="200dp"
 
         android:layout_height="46dp"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/roundedebutton"
 
         android:text="SIGN UP"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
